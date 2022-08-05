@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+       
+      }
+      .img-area{
+        box-shadow: 5px 10px 20px 10px #d65151;
+      }
+      .img-area:before, .img-area:after{
+        content: "";
+        height: 100%;
+        position: absolute;
+        top: 0;
+        width: 30px;
+      }
+      .img-area:before{
+        box-shadow: -35px 0 15px -15px inset red;
+  left: -35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+        <div class="img-area">
+            
+            <img
+              src="https://images.unsplash.com/photo-1616696695535-98369e260e7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8&auto=format&fit=crop&w=500&q=60"
+              alt=""
+            />
+        </div>
+    </div>
+  </body>
+</html>
