@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .slider-parent {
+        width: 100%;
+        height: 500px;
+        overflow-x: hidden;
+       
+      }
+      li {
+        height: 100%;
+        list-style: none;
+        float: left;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+        padding: 0;
+      }
+      ul {
+        margin: 0;
+        padding: 0;
+        position: relative;
+        top: 0;
+        left: 0;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="slider-parent">
+      <ul class="slider">
+        <li
+          style="
+            background-image: url(https://images.freeimages.com/images/large-previews/70b/bike-red-1423575.jpg);
+          "
+        ></li>
+        <li
+          style="
+            background-image: url(https://www.istockphoto.com/resources/images/PhotoFTLP/P5-AUG-iStock-1170804921.jpg);
+          "
+        ></li>
+        <li
+          style="
+            background-image: url(https://media.istockphoto.com/photos/portrait-of-excited-elementary-school-pupils-on-playing-field-at-picture-id1160932512?k=20&m=1160932512&s=612x612&w=0&h=ek0pCc_2ktWi0dK1sWVdYGWYYsQE8I8CutvMLJWtZ04=);
+          "
+        ></li>
+      </ul>
+      <button class="left">Left</button>
+      <button class="right">Right</button>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let parent_width =
+          document.querySelector(".slider").parentNode.offsetWidth;
+
+        const li = document.querySelectorAll("li");
+        li.forEach((each, i) => {
+          each.style.width = parent_width + "px";
+        });
+
+        let slider = document.querySelector("ul");
+        slider.style.width = parent_width * li.length + "px";
+
+        document.querySelector(".left").onclick = (e) => {
+          e.preventDefault();
+          document
+            .querySelector("ul")
+            .insertBefore(
+              document.querySelector("li:last-of-type"),
+              document.querySelector("li:first-of-type")
+            );
+
+          document.querySelector("ul").style.transitionProperty = "none";
+          slider.style.left = -parent_width + "px";
+
+          setTimeout(() => {
+            slider.style.transitionProperty = "left";
+            slider.style.transitionDuration = "0.5s"
+            slider.style.left = "0px";
+          }, 50)
+        };
+      });
+    </script>
+  </body>
+</html>
