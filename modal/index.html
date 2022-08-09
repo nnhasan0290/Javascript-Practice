@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .main-modal {
+        background-image: url("https://images.freeimages.com/images/previews/70b/bike-red-1423575.jpg");
+        height: 80vh;
+      }
+      .main-modal {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 50%;
+        margin: 0 auto;
+      }
+
+      button {
+        padding: 5px;
+        text-transform: capitalize;
+        font-style: oblique;
+        margin: 0 auto;
+        display: block;
+      }
+
+      .single-modal {
+        padding: 10px;
+        background-color: rgba(0, 0, 0, 0.6);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: none;
+      }
+      .single-img {
+        width: 30%;
+        height: 300px;
+        float: left;
+      }
+      img {
+        max-width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="images">
+      <div class="single-img">
+        <img
+          src="https://images.freeimages.com/images/previews/70b/bike-red-1423575.jpg"
+          alt=""
+        />
+      </div>
+      <div class="single-img">
+        <img
+          src="https://images.freeimages.com/images/previews/5e0/daisys-1392171.jpg"
+          alt=""
+        />
+      </div>
+      <div class="single-img">
+        <img
+          src="https://images.freeimages.com/variants/wRSq1uDsVFrz8CdB9dhETTHh/5a0bd68e593adb18739fe6fe526aa40368c6d1e5924c85e47ba06f7a665f1000"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="modal">
+      <div class="single-modal">
+        <button>close</button>
+        <div class="main-modal"></div>
+      </div>
+    </div>
+    <script>
+      let images = document.querySelectorAll(".single-img>img");
+      let main_modal = document.querySelector(".main-modal");
+      let img_div = document.querySelectorAll(".single-img");
+      let image_arr = [];
+      images.forEach((each) => {
+        image_arr.push(each.src);
+      });
+      console.log(image_arr);
+
+      images.forEach((each) => {
+        each.onclick = () => {
+          console.log("clicked");
+          main_modal.style.backgroundImage = `url(${each.src})`;
+          console.log("not clicked");
+          document.querySelector(".single-modal").style.display = "block";
+        };
+      });
+      document.querySelector("button").onclick = () => {
+        document.querySelector('.single-modal').style.display = "none";
+      }
+    </script>
+  </body>
+</html>
