@@ -1,21 +1,15 @@
-import { useDispatch, useSelector } from 'react-redux';
-import "./App.css";
+import './App.css';
 import logo from './logo.svg';
-import { increment } from './reducer';
 
 function App() {
-  const dispatch = useDispatch();
-  const state = useSelector(state => state.testState);
-  console.log(state);
-  
   return (
-
-    
-          <div className="App">
+    <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Edit
+          <code>src/App.js</code>
+          and save to reload.
         </p>
         <a
           className="App-link"
@@ -26,7 +20,6 @@ function App() {
           Learn React
         </a>
       </header>
-      <button onClick={() => dispatch(increment())}>button</button>
     </div>
   );
 }
